@@ -23,7 +23,7 @@ const SITE = {
 const CONTENT = {
   /* ------------------------------------------------------------------ */
   en: {
-    nav: { about: "About", journey: "Experience", projects: "Projects", skills: "Skills",
+    nav: { about: "About", journey: "Experience", projects: "Projects",
            research: "Research", contact: "Contact" },
 
     hero: {
@@ -81,42 +81,30 @@ const CONTENT = {
     },
 
     journey: {
-      kicker: "Journey",
+      kicker: "Experience",
       title: "From simulation code to research platforms",
+      cvLink: "View full CV",
       items: [
-        { period: "Sep 2025 – now", role: "Software Engineer",
-          org: "Leibniz Institute of Plant Biochemistry (IPB), Halle (Saale)", tech: ["Java","Jakarta EE","PostgreSQL","OAuth2","OpenAPI","Docker","CI/CD"],
-          points: [
-            "Designed and modernised the backend of the Natural One Health (N1H) research infrastructure built on CRIMSy.",
-            "Implemented PostgreSQL-based session management, OAuth2 authentication and fine-grained RBAC.",
-            "Introduced automated OpenAPI/Swagger documentation pipelines with client code generation.",
-            "Built Docker-based CI/CD pipelines for isolated, reproducible deployments."
-          ] },
-        { period: "Nov 2023 – Aug 2025", role: "Independent Software Engineer & Technical Consultant",
-          org: "Self-employed", tech: ["AI systems","IoT architecture","Automation"],
-          points: [
-            "Consulted international clients on AI-powered systems, IoT architectures and process automation.",
-            "Delivered German and English language training for international engineers and researchers."
-          ] },
-        { period: "Jul 2021 – Sep 2023", role: "Software Engineer – IoT & Cloud",
-          org: "Beko Technologies GmbH, Neuss", tech: ["C++","Qt","IoT","Cloud","CI/CD"],
-          points: [
-            "Developed industrial IoT software in embedded and cloud environments with Qt and C++.",
-            "Rolled out automated CI/CD pipelines — 30% faster deployments.",
-            "Tuned legacy systems for a documented 25% efficiency gain across key data pipelines."
-          ] },
-        { period: "Dec 2020 – May 2021", role: "Software Engineer",
-          org: "Markt-intern Verlag GmbH, Düsseldorf", tech: ["Subscription systems","Testing","Debugging automation","Refactoring"],
-          points: [
-            "Extended and maintained business-critical subscription management systems.",
-            "Systematised testing and refactored code to improve stability."
-          ] },
-        { period: "Jun 2017 – Jul 2020", role: "Student Research Assistant – Software Development",
-          org: "IKV Institute, RWTH Aachen", tech: ["C++","Python","RapidMiner","Simulation"],
-          points: [
-            "Core developer of the simulation framework SphaeroSim (C++).",
-            "Automated data processing pipelines with Python, C++ and RapidMiner — 50% higher throughput."
-          ] }
+        { period: "2025 – now", role: "Software Engineer",
+          org: "Leibniz Institute of Plant Biochemistry (IPB)",
+          summary: "Backend and web development for the Natural One Health and CRIMSy research platforms — authentication (OAuth2/OIDC, sessions, RBAC), OpenAPI-based APIs with generated clients, and Docker-based CI/CD.",
+          tech: ["Java", "Spring Boot", "Jakarta EE", "PostgreSQL", "Neo4j", "React / TypeScript", "Docker"] },
+        { period: "2023 – 2025", role: "Freelance Software Engineer & Trainer",
+          org: "Self-employed",
+          summary: "Technical consulting for clients, including software for building management (service charges, maintenance and repairs) and for a law firm, plus German and English training for international professionals.",
+          tech: ["Consulting", "Process automation", "AI & IoT"] },
+        { period: "2021 – 2023", role: "Software Engineer – IoT & Cloud",
+          org: "Beko Technologies",
+          summary: "Industrial IoT software in C++ and Qt. Introduced CI/CD pipelines (30% faster deployments) and optimised data structures and SQL queries in legacy systems (25% efficiency gain).",
+          tech: ["C++", "Qt", "SQL", "CI/CD"] },
+        { period: "2020 – 2021", role: "Software Engineer",
+          org: "Markt-intern Verlag",
+          summary: "Database management and further development of subscription management systems, with systematic testing and refactoring.",
+          tech: ["SQL", "Databases", "Testing"] },
+        { period: "2017 – 2020", role: "Student Research Assistant – Software Development",
+          org: "IKV · RWTH Aachen",
+          summary: "Core developer of the simulation software SphaeroSim (C++): parallelised its three main algorithms with OpenMP, implemented simulated annealing, and automated data pipelines in Python and RapidMiner (50% higher throughput).",
+          tech: ["C++", "OpenMP", "Python", "RapidMiner"] }
       ]
     },
 
@@ -151,51 +139,15 @@ const CONTENT = {
     research: {
       kicker: "Research",
       title: "Publications",
-      orcid: "View ORCID profile",
+      orcid: "All publications on ORCID",
+      read: "Read",
       items: [
-        { year: "2024", title: "Interpretable machine learning models for protein engineering", venue: "Biotechnology Advances" },
-        { year: "2024", title: "AI-driven peptide drug discovery", venue: "Briefings in Bioinformatics" },
-        { year: "2015", title: "Virtual creativity systems for smart cities", venue: "WASET" },
-        { year: "2015", title: "Trust management in e-commerce systems", venue: "AASRJ" },
-        { year: "2013", title: "Security of mobile financial transactions", venue: "IJCNCS" }
-      ]
-    },
-
-    skills: {
-      kicker: "Skills",
-      title: "Technical toolbox",
-      groups: [
-        { name: "Programming", items: ["Python", "C++", "Java", "JavaScript", "SQL"] },
-        { name: "Backend & APIs", items: ["FastAPI", "REST", "OpenAPI / Swagger", "Jakarta EE", "OAuth2", "RBAC"] },
-        { name: "Databases", items: ["PostgreSQL", "Neo4j", "MySQL", "MSSQL"] },
-        { name: "DevOps & Cloud", items: ["Docker", "Git", "GitHub Actions", "CI/CD"] },
-        { name: "AI & Data Science", items: ["Explainable AI", "Geometric Deep Learning", "TensorFlow", "HuggingFace", "Jupyter"] },
-        { name: "Software Engineering", items: ["Scalable architecture", "Microservices", "Scrum", "TDD"] },
-        { name: "UI & Tools", items: ["React", "Qt", "HTML5 / CSS3", "VS Code", "IntelliJ IDEA"] }
-      ]
-    },
-
-    education: {
-      kicker: "Education",
-      title: "Education & certifications",
-      degrees: [
-        { period: "2016 – 2020", degree: "M.Sc. Software Systems Engineering", school: "RWTH Aachen University, Germany",
-          note: "Thesis: Model-Based Software Engineering and Privacy in the Smart Home" },
-        { period: "2007 – 2011", degree: "B.Sc. Information Technology", school: "IAUM, Mashhad, Iran",
-          note: "Thesis: Customer Relationship Management (CRM) Systems" }
+        { year: "2024", title: "Interpretable and explainable predictive machine learning models for data-driven protein engineering",
+          venue: "Biotechnology Advances, 79 (2025) · co-author", url: "https://doi.org/10.1016/j.biotechadv.2024.108495" },
+        { year: "2024", title: "Peptide-based drug discovery through artificial intelligence: towards an autonomous design of therapeutic peptides",
+          venue: "Briefings in Bioinformatics, 25(4) · co-author", url: "https://doi.org/10.1093/bib/bbae275" }
       ],
-      certTitle: "Certifications",
-      certs: [
-        { name: "Deep Learning Specialization", issuer: "DeepLearning.AI (Coursera)" },
-        { name: "Azure AI Fundamentals (AI-900)", issuer: "Microsoft" },
-        { name: "Azure Fundamentals (AZ-900)", issuer: "Microsoft" }
-      ],
-      langTitle: "Languages",
-      langs: [
-        { name: "English", level: "Full professional", pct: 95 },
-        { name: "German", level: "Professional working", pct: 80 },
-        { name: "Persian", level: "Native", pct: 100 }
-      ]
+      earlier: "Earlier publications (2013–2015) on virtual creativity systems for smart cities, trust management in e-commerce and the security of mobile financial transactions."
     },
 
     contact: {
@@ -206,13 +158,12 @@ const CONTENT = {
       copied: "Copied!"
     },
 
-    rights: "All rights reserved.",
     footer: { rights: "All rights reserved.", built: "Built with HTML · CSS · JavaScript · Hosted on GitHub Pages" }
   },
 
   /* ------------------------------------------------------------------ */
   de: {
-    nav: { about: "Über mich", journey: "Erfahrung", projects: "Projekte", skills: "Kenntnisse",
+    nav: { about: "Über mich", journey: "Erfahrung", projects: "Projekte",
            research: "Forschung", contact: "Kontakt" },
 
     hero: {
@@ -270,42 +221,30 @@ const CONTENT = {
     },
 
     journey: {
-      kicker: "Werdegang",
+      kicker: "Erfahrung",
       title: "Von Simulationscode zu Forschungsplattformen",
+      cvLink: "Vollständigen Lebenslauf ansehen",
       items: [
-        { period: "Sep 2025 – heute", role: "Software Engineer",
-          org: "Leibniz-Institut für Pflanzenbiochemie (IPB), Halle (Saale)", tech: ["Java","Jakarta EE","PostgreSQL","OAuth2","OpenAPI","Docker","CI/CD"],
-          points: [
-            "Konzeption und Modernisierung des Backends der Forschungsinfrastruktur Natural One Health (N1H) auf Basis von CRIMSy.",
-            "Umsetzung von PostgreSQL-basiertem Session-Management, OAuth2-Authentifizierung und feingranularem RBAC.",
-            "Einführung automatisierter OpenAPI/Swagger-Dokumentationspipelines mit Client-Codegenerierung.",
-            "Aufbau Docker-basierter CI/CD-Pipelines für isolierte, reproduzierbare Deployments."
-          ] },
-        { period: "Nov 2023 – Aug 2025", role: "Freiberufliche Software Engineerin & technische Beraterin",
-          org: "Selbstständig", tech: ["KI-Systeme","IoT-Architektur","Automatisierung"],
-          points: [
-            "Beratung internationaler Kunden zu KI-Systemen, IoT-Architekturen und Prozessautomatisierung.",
-            "Sprachtrainings (Deutsch/Englisch) für internationale Ingenieur:innen und Forschende."
-          ] },
-        { period: "Jul 2021 – Sep 2023", role: "Software Engineer – IoT & Cloud",
-          org: "Beko Technologies GmbH, Neuss", tech: ["C++","Qt","IoT","Cloud","CI/CD"],
-          points: [
-            "Entwicklung industrieller IoT-Software in Embedded- und Cloud-Umgebungen mit Qt und C++.",
-            "Einführung automatisierter CI/CD-Pipelines — 30 % kürzere Deployment-Zeit.",
-            "Performance-Tuning von Legacy-Systemen mit dokumentierten 25 % Effizienzgewinn."
-          ] },
-        { period: "Dez 2020 – Mai 2021", role: "Software Engineer",
-          org: "Markt-intern Verlag GmbH, Düsseldorf", tech: ["Abo-Systeme","Testing","Debugging-Automatisierung","Refactoring"],
-          points: [
-            "Weiterentwicklung und Wartung geschäftskritischer Abo-Verwaltungssysteme.",
-            "Systematisierung von Tests und Refactoring für mehr Stabilität."
-          ] },
-        { period: "Jun 2017 – Jul 2020", role: "Studentische Hilfskraft – Softwareentwicklung",
-          org: "IKV, RWTH Aachen", tech: ["C++","Python","RapidMiner","Simulation"],
-          points: [
-            "Kernentwicklerin des Simulationsframeworks SphaeroSim (C++).",
-            "Automatisierung von Datenpipelines mit Python, C++ und RapidMiner — 50 % höherer Durchsatz."
-          ] }
+        { period: "2025 – heute", role: "Software Engineer",
+          org: "Leibniz-Institut für Pflanzenbiochemie (IPB)",
+          summary: "Backend- und Webentwicklung für die Forschungsplattformen Natural One Health und CRIMSy – Authentifizierung (OAuth2/OIDC, Sessions, RBAC), OpenAPI-basierte APIs mit generierten Clients und Docker-basiertes CI/CD.",
+          tech: ["Java", "Spring Boot", "Jakarta EE", "PostgreSQL", "Neo4j", "React / TypeScript", "Docker"] },
+        { period: "2023 – 2025", role: "Freiberufliche Softwareentwicklerin & Dozentin",
+          org: "Selbstständig",
+          summary: "Technische Beratung für Kunden, u. a. Software für die Gebäudeverwaltung (Nebenkosten, Wartung und Reparaturen) und für eine Anwaltskanzlei, sowie Deutsch- und Englischunterricht für internationale Fachkräfte.",
+          tech: ["Beratung", "Prozessautomatisierung", "KI & IoT"] },
+        { period: "2021 – 2023", role: "Softwareentwicklerin – IoT & Cloud",
+          org: "Beko Technologies",
+          summary: "Industrielle IoT-Software mit C++ und Qt. Einführung von CI/CD-Pipelines (30 % schnellere Deployments) und Optimierung von Datenstrukturen und SQL-Abfragen in Legacy-Systemen (25 % Effizienzsteigerung).",
+          tech: ["C++", "Qt", "SQL", "CI/CD"] },
+        { period: "2020 – 2021", role: "Softwareentwicklerin",
+          org: "Markt-intern Verlag",
+          summary: "Datenbankverwaltung und Weiterentwicklung von Abonnement-Management-Systemen mit systematischem Testing und Refactoring.",
+          tech: ["SQL", "Datenbanken", "Testing"] },
+        { period: "2017 – 2020", role: "Studentische Hilfskraft – Softwareentwicklung",
+          org: "IKV · RWTH Aachen",
+          summary: "Kernentwicklerin der Simulationssoftware SphaeroSim (C++): Parallelisierung der drei Hauptalgorithmen mit OpenMP, Implementierung von Simulated Annealing und Automatisierung von Datenpipelines mit Python und RapidMiner (50 % höherer Durchsatz).",
+          tech: ["C++", "OpenMP", "Python", "RapidMiner"] }
       ]
     },
 
@@ -340,51 +279,15 @@ const CONTENT = {
     research: {
       kicker: "Forschung",
       title: "Publikationen",
-      orcid: "ORCID-Profil ansehen",
+      orcid: "Alle Publikationen auf ORCID",
+      read: "Lesen",
       items: [
-        { year: "2024", title: "Interpretable machine learning models for protein engineering", venue: "Biotechnology Advances" },
-        { year: "2024", title: "AI-driven peptide drug discovery", venue: "Briefings in Bioinformatics" },
-        { year: "2015", title: "Virtual creativity systems for smart cities", venue: "WASET" },
-        { year: "2015", title: "Trust management in e-commerce systems", venue: "AASRJ" },
-        { year: "2013", title: "Security of mobile financial transactions", venue: "IJCNCS" }
-      ]
-    },
-
-    skills: {
-      kicker: "Skills",
-      title: "Technischer Werkzeugkasten",
-      groups: [
-        { name: "Programmierung", items: ["Python", "C++", "Java", "JavaScript", "SQL"] },
-        { name: "Backend & APIs", items: ["FastAPI", "REST", "OpenAPI / Swagger", "Jakarta EE", "OAuth2", "RBAC"] },
-        { name: "Datenbanken", items: ["PostgreSQL", "Neo4j", "MySQL", "MSSQL"] },
-        { name: "DevOps & Cloud", items: ["Docker", "Git", "GitHub Actions", "CI/CD"] },
-        { name: "KI & Data Science", items: ["Erklärbare KI", "Geometric Deep Learning", "TensorFlow", "HuggingFace", "Jupyter"] },
-        { name: "Software Engineering", items: ["Skalierbare Architektur", "Microservices", "Scrum", "TDD"] },
-        { name: "UI & Tools", items: ["React", "Qt", "HTML5 / CSS3", "VS Code", "IntelliJ IDEA"] }
-      ]
-    },
-
-    education: {
-      kicker: "Ausbildung",
-      title: "Ausbildung & Zertifikate",
-      degrees: [
-        { period: "2016 – 2020", degree: "M.Sc. Software Systems Engineering", school: "RWTH Aachen University, Deutschland",
-          note: "Masterarbeit: Model-Based Software Engineering and Privacy in the Smart Home" },
-        { period: "2007 – 2011", degree: "B.Sc. Informationstechnologie", school: "IAUM, Maschhad, Iran",
-          note: "Bachelorarbeit: Customer-Relationship-Management-Systeme (CRM)" }
+        { year: "2024", title: "Interpretable and explainable predictive machine learning models for data-driven protein engineering",
+          venue: "Biotechnology Advances, 79 (2025) · Mitautorin", url: "https://doi.org/10.1016/j.biotechadv.2024.108495" },
+        { year: "2024", title: "Peptide-based drug discovery through artificial intelligence: towards an autonomous design of therapeutic peptides",
+          venue: "Briefings in Bioinformatics, 25(4) · Mitautorin", url: "https://doi.org/10.1093/bib/bbae275" }
       ],
-      certTitle: "Zertifikate",
-      certs: [
-        { name: "Deep Learning Specialization", issuer: "DeepLearning.AI (Coursera)" },
-        { name: "Azure AI Fundamentals (AI-900)", issuer: "Microsoft" },
-        { name: "Azure Fundamentals (AZ-900)", issuer: "Microsoft" }
-      ],
-      langTitle: "Sprachen",
-      langs: [
-        { name: "Englisch", level: "Verhandlungssicher", pct: 95 },
-        { name: "Deutsch", level: "Fließend im Beruf", pct: 80 },
-        { name: "Persisch", level: "Muttersprache", pct: 100 }
-      ]
+      earlier: "Frühere Publikationen (2013–2015) zu virtuellen Kreativitätssystemen für Smart Cities, Vertrauensmanagement im E-Commerce und Sicherheit mobiler Finanztransaktionen."
     },
 
     contact: {
@@ -395,7 +298,6 @@ const CONTENT = {
       copied: "Kopiert!"
     },
 
-    rights: "Alle Rechte vorbehalten.",
     footer: { rights: "Alle Rechte vorbehalten.", built: "Erstellt mit HTML · CSS · JavaScript · Gehostet auf GitHub Pages" }
   }
 };

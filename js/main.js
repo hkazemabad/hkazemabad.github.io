@@ -90,11 +90,13 @@
           <div class="row-main">
             <h3>${it.role}</h3>
             <p class="row-org">${it.org}</p>
-            <ul class="ticks">${it.points.map(p => `<li>${p}</li>`).join("")}</ul>
+            <p class="row-text">${it.summary}</p>
             ${it.tech ? chips(it.tech, "small") : ""}
           </div>
         </li>`).join("")}
-      </ol></div>`;
+      </ol>
+      <a class="text-link" href="${SITE.cv[lang]}" target="_blank" rel="noopener">${j.cvLink}${icon("arrow", "ic sm")}</a>
+      </div>`;
 
     /* PROJECTS */
     const p = c.projects;
@@ -113,6 +115,20 @@
         <p class="soon reveal"><strong>${p.soon}.</strong> ${p.soonText}</p>
       </div></div>`;
 
+    /* RESEARCH */
+    const r = c.research;
+    $("research").innerHTML = head(++n, r.kicker, r.title,
+      `<a class="text-link" href="${L.orcid}" target="_blank" rel="noopener">${icon("orcid", "ic sm")}${r.orcid}</a>`) + `
+      <div class="sec-body"><ol class="rows pubs">${r.items.map(pb => `
+        <li class="row reveal"><div class="row-meta">${pb.year}</div><div class="row-main">
+          <h3 class="serif"><a href="${pb.url}" target="_blank" rel="noopener">${pb.title}</a></h3>
+          <p class="row-org"><em>${pb.venue}</em></p>
+          <a class="text-link small" href="${pb.url}" target="_blank" rel="noopener">${r.read}${icon("arrow", "ic sm")}</a>
+        </div></li>`).join("")}
+      </ol>
+      <p class="muted earlier reveal">${r.earlier}</p>
+      </div>`;
+
     /* CREATING */
     const cr = c.creating;
     $("creating").innerHTML = head(++n, cr.kicker, cr.title, `<p class="sec-lead">${cr.intro}</p>`) + `
@@ -124,36 +140,6 @@
           ${it.url ? `<a class="text-link" href="${it.url}" target="_blank" rel="noopener">${it.linkLabel}${icon("arrow", "ic sm")}</a>` : ""}
         </article>`).join("")}
       </div></div>`;
-
-    /* RESEARCH */
-    const r = c.research;
-    $("research").innerHTML = head(++n, r.kicker, r.title,
-      `<a class="text-link" href="${L.orcid}" target="_blank" rel="noopener">${icon("orcid", "ic sm")}${r.orcid}</a>`) + `
-      <div class="sec-body"><ol class="rows pubs">${r.items.map(pb => `
-        <li class="row reveal"><div class="row-meta">${pb.year}</div><div class="row-main"><h3 class="serif">${pb.title}</h3><p class="row-org"><em>${pb.venue}</em></p></div></li>`).join("")}
-      </ol></div>`;
-
-    /* SKILLS */
-    const s = c.skills;
-    $("skills").innerHTML = head(++n, s.kicker, s.title) + `
-      <div class="sec-body"><dl class="rows skills">${s.groups.map(g => `
-        <div class="row reveal"><dt class="row-meta">${g.name}</dt><dd class="row-main">${chips(g.items)}</dd></div>`).join("")}
-      </dl></div>`;
-
-    /* EDUCATION */
-    const e = c.education;
-    $("education").innerHTML = head(++n, e.kicker, e.title) + `
-      <div class="sec-body">
-        <ol class="rows">${e.degrees.map(d => `
-          <li class="row reveal"><div class="row-meta">${d.period}</div><div class="row-main"><h3>${d.degree}</h3><p class="row-org">${d.school}</p><p class="muted">${d.note}</p></div></li>`).join("")}
-        </ol>
-        <div class="two-col">
-          <div class="reveal"><span class="label">${e.certTitle}</span>
-            <ul class="plain">${e.certs.map(ct => `<li><strong>${ct.name}</strong><span>${ct.issuer}</span></li>`).join("")}</ul></div>
-          <div class="reveal"><span class="label">${e.langTitle}</span>
-            <ul class="plain">${e.langs.map(l => `<li><strong>${l.name}</strong><span>${l.level}</span></li>`).join("")}</ul></div>
-        </div>
-      </div>`;
 
     /* CONTACT */
     const ct = c.contact;

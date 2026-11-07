@@ -196,6 +196,11 @@ h3.serif { font: 500 19px/1.35 var(--serif); }
 .row-meta { font: 500 13px var(--mono); color: var(--muted); padding-top: 3px; }
 .row.current .row-meta { color: var(--gold); }
 .row-org { color: var(--blue-2); font-size: 14.5px; margin: 3px 0 12px; }
+.row-text { color: var(--soft); font-size: 15px; margin-bottom: 12px; max-width: 680px; }
+.rows + .text-link { margin-top: 22px; }
+.pubs h3 a:hover { color: var(--gold); }
+.text-link.small { font-size: 13px; margin-top: 8px; }
+.earlier { margin-top: 20px; font-size: 14.5px; max-width: 680px; }
 .ticks { display: grid; gap: 7px; margin-bottom: 14px; }
 .ticks li { position: relative; padding-left: 20px; color: var(--soft); font-size: 15px; }
 .ticks li::before { content: ""; position: absolute; left: 2px; top: 11px; width: 8px; height: 2px; background: var(--gold); }
