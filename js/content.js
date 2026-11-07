@@ -49,7 +49,7 @@ const CONTENT = {
       stats: [
         { value: "30%", label: "shorter deployment time through CI/CD — Beko Technologies" },
         { value: "25%", label: "efficiency gain from tuning data structures and SQL queries — Beko Technologies" },
-        { value: "50%", label: "higher data-pipeline throughput — IKV, RWTH Aachen" },
+        { value: "50%", label: "higher simulation performance through OpenMP parallelisation — IKV, RWTH Aachen" },
         { value: "5",   label: "scientific publications, two of them in 2024" }
       ],
       nowLabel: "Right now",
@@ -109,8 +109,8 @@ const CONTENT = {
           tech: ["SQL", "Databases", "Testing"] },
         { period: "2017 – 2020", role: "Student Research Assistant – Software Development",
           org: "IKV · RWTH Aachen",
-          summary: "Core developer of the simulation software SphaeroSim (C++): parallelised its three main algorithms with OpenMP, implemented simulated annealing, and automated data pipelines in Python and RapidMiner (50% higher throughput).",
-          tech: ["C++", "OpenMP", "Python", "RapidMiner"] }
+          summary: "Core developer of the simulation software SphaeroSim (C++): parallelised its three main algorithms with OpenMP and optimised memory use with std::vector and Eigen (50% higher performance). Also built data-driven models in Python and RapidMiner, implemented simulated annealing and ran feasibility studies for new features.",
+          tech: ["C++", "OpenMP", "Eigen", "Python", "RapidMiner"] }
       ]
     },
 
@@ -148,12 +148,12 @@ const CONTENT = {
           org: "IKV · RWTH Aachen",
           overview: "Simulation software for modelling spherulite growth during polymer crystallisation.",
           points: [
-            "Core developer of the C++ code base",
-            "Parallelised the three main algorithms with OpenMP and implemented simulated annealing",
+            "Parallelised the three main algorithms with OpenMP and optimised memory use with std::vector and Eigen — 50% higher simulation performance",
+            "Core developer of the C++ code base: simulated annealing and feasibility studies for new features",
             "Wrote a data extractor that turns simulation output (XML, CSV, VTK) into clean datasets for analysis"
           ],
           note: "",
-          tech: ["C++", "OpenMP", "Python", "RapidMiner"],
+          tech: ["C++", "OpenMP", "Eigen", "Python", "RapidMiner"],
           links: [
             { label: "SphaeroSim", url: "https://github.com/hkazemabad/SphaeroSim" },
             { label: "Data Extractor", url: "https://github.com/hkazemabad/SphaeroSim-DataExtractor" }
@@ -214,7 +214,7 @@ const CONTENT = {
       stats: [
         { value: "30 %", label: "kürzere Deployment-Zeit durch CI/CD – Beko Technologies" },
         { value: "25 %", label: "Effizienzsteigerung durch Optimierung von Datenstrukturen und SQL-Abfragen – Beko Technologies" },
-        { value: "50 %", label: "höherer Durchsatz der Datenpipelines – IKV, RWTH Aachen" },
+        { value: "50 %", label: "höhere Simulations-Performance durch Parallelisierung mit OpenMP – IKV, RWTH Aachen" },
         { value: "5",    label: "wissenschaftliche Publikationen, davon zwei aus 2024" }
       ],
       nowLabel: "Aktuell",
@@ -274,8 +274,8 @@ const CONTENT = {
           tech: ["SQL", "Datenbanken", "Testing"] },
         { period: "2017 – 2020", role: "Studentische Hilfskraft – Softwareentwicklung",
           org: "IKV · RWTH Aachen",
-          summary: "Kernentwicklerin der Simulationssoftware SphaeroSim (C++): Parallelisierung der drei Hauptalgorithmen mit OpenMP, Implementierung von Simulated Annealing und Automatisierung von Datenpipelines mit Python und RapidMiner (50 % höherer Durchsatz).",
-          tech: ["C++", "OpenMP", "Python", "RapidMiner"] }
+          summary: "Kernentwicklerin der Simulationssoftware SphaeroSim (C++): Parallelisierung der drei Hauptalgorithmen mit OpenMP und Optimierung der Speichernutzung mit std::vector und Eigen (50 % höhere Performance). Außerdem datengetriebene Modelle mit Python und RapidMiner, Implementierung von Simulated Annealing und Machbarkeitsstudien für neue Funktionen.",
+          tech: ["C++", "OpenMP", "Eigen", "Python", "RapidMiner"] }
       ]
     },
 
@@ -313,12 +313,12 @@ const CONTENT = {
           org: "IKV · RWTH Aachen",
           overview: "Simulationssoftware zur Modellierung des Sphärolithwachstums bei der Kristallisation von Polymeren.",
           points: [
-            "Kernentwicklerin der C++-Codebasis",
-            "Parallelisierung der drei Hauptalgorithmen mit OpenMP und Implementierung von Simulated Annealing",
+            "Parallelisierung der drei Hauptalgorithmen mit OpenMP und Optimierung der Speichernutzung mit std::vector und Eigen – 50 % höhere Simulations-Performance",
+            "Kernentwicklerin der C++-Codebasis: Simulated Annealing und Machbarkeitsstudien für neue Funktionen",
             "Entwicklung eines Data Extractors, der Simulationsergebnisse (XML, CSV, VTK) in saubere Datensätze für die Analyse überführt"
           ],
           note: "",
-          tech: ["C++", "OpenMP", "Python", "RapidMiner"],
+          tech: ["C++", "OpenMP", "Eigen", "Python", "RapidMiner"],
           links: [
             { label: "SphaeroSim", url: "https://github.com/hkazemabad/SphaeroSim" },
             { label: "Data Extractor", url: "https://github.com/hkazemabad/SphaeroSim-DataExtractor" }
