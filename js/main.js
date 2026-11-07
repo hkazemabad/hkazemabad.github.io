@@ -98,18 +98,22 @@
       <a class="text-link" href="${SITE.cv[lang]}" target="_blank" rel="noopener">${j.cvLink}${icon("arrow", "ic sm")}</a>
       </div>`;
 
-    /* PROJECTS */
+    /* PROJECTS — short case studies */
     const p = c.projects;
     $("projects").innerHTML = head(++n, p.kicker, p.title, `<p class="sec-lead">${p.intro}</p>`) + `
       <div class="sec-body"><div class="projects">
         ${p.items.map((pr, i) => `
         <article class="project reveal ${pr.featured ? "featured" : ""}">
-          <div class="project-top"><span class="proj-num">P/${String(i + 1).padStart(2, "0")}</span><span class="tag">${pr.tag}</span>
-            <a href="${pr.url}" target="_blank" rel="noopener" class="proj-link">${icon("github", "ic sm")}${p.code}${icon("arrow", "ic sm")}</a></div>
+          <div class="project-top">
+            <span class="proj-num">P/${String(i + 1).padStart(2, "0")}</span>
+            <span class="tag">${pr.tag} · ${pr.period}</span>
+            <span class="proj-links">${pr.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="proj-link">${icon("github", "ic sm")}${l.label}${icon("arrow", "ic sm")}</a>`).join("")}</span>
+          </div>
           <h3>${pr.name}</h3>
-          <p class="role">${pr.role}</p>
-          <p>${pr.text}</p>
-          ${pr.highlights ? `<ul class="ticks">${pr.highlights.map(x => `<li>${x}</li>`).join("")}</ul>` : ""}
+          <p class="role">${pr.org}</p>
+          <p class="overview">${pr.overview}</p>
+          <span class="label mine">${p.mine}${pr.note ? ` · ${pr.note}` : ""}</span>
+          <ul class="ticks">${pr.points.map(x => `<li>${x}</li>`).join("")}</ul>
           ${chips(pr.tech, "small")}
         </article>`).join("")}
         <p class="soon reveal"><strong>${p.soon}.</strong> ${p.soonText}</p>

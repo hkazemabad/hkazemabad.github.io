@@ -110,29 +110,48 @@ const CONTENT = {
 
     projects: {
       kicker: "Projects",
-      title: "Selected work on GitHub",
-      intro: "Public repositories. More projects will be added here soon.",
-      all: "All",
-      code: "Code",
+      title: "Selected work",
+      intro: "Three projects from research and industry — what they are and what I contributed.",
+      mine: "My contribution",
       soon: "More projects coming soon",
-      soonText: "Further work — including AI and web applications — will be published here.",
+      soonText: "Further work, including AI and web applications, will be added here.",
       items: [
-        { name: "CRIMSy / Natural One Health", tag: "Backend",
-          url: "https://github.com/hkazemabad/CRIMSy",
-          role: "Contributor · IPB Halle", featured: true,
-          highlights: ["PostgreSQL session management, OAuth2 & fine-grained RBAC", "OpenAPI/Swagger docs pipeline with generated clients", "Dockerised CI/CD for reproducible deployments"],
-          text: "Cloud Resource & Information Management System — a distributed research platform for sharing and analysing chemical, sequence and biochemical data with fine-grained access control across institutions.",
-          tech: ["Java", "Jakarta EE", "Maven", "PostgreSQL", "Docker", "OAuth2"] },
-        { name: "SphaeroSim", tag: "Simulation",
-          url: "https://github.com/hkazemabad/SphaeroSim",
-          role: "Core developer · IKV, RWTH Aachen",
-          text: "Engineering simulation framework for modelling spherulite growth during polymer crystallisation.",
-          tech: ["C++", "Eigen", "Visual Studio"] },
-        { name: "SphaeroSim Data Extractor", tag: "Data",
-          url: "https://github.com/hkazemabad/SphaeroSim-DataExtractor",
-          role: "Author",
-          text: "Scans simulation databanks, extracts XML, CSV and VTK results, interpolates temperature profiles, validates runs and exports clean, aggregated CSV datasets for analysis.",
-          tech: ["C++", "XML", "CSV", "VTK"] }
+        { name: "Natural One Health", tag: "Research platform", period: "2026", featured: true,
+          org: "Leibniz Institute of Plant Biochemistry (IPB) · team project",
+          overview: "An interactive knowledge base for bioactive compound discovery that links natural product chemistry, biodiversity and biomedical research data.",
+          points: [
+            "Researcher login via ORCID with Spring Security (OIDC) and server-side sessions in PostgreSQL",
+            "API-first development: OpenAPI specification with a generated TypeScript client for the React frontend",
+            "User account features, automated tests (JUnit, Jest) and Docker / GitHub Actions pipelines"
+          ],
+          note: "200+ commits",
+          tech: ["Java 21", "Spring Boot", "PostgreSQL", "Neo4j", "OpenAPI", "React", "TypeScript", "Docker"],
+          links: [{ label: "GitHub", url: "https://github.com/ipb-halle/one-health" }] },
+        { name: "CRIMSy modernisation", tag: "Modernisation", period: "2025 – 2026", featured: true,
+          org: "Leibniz Institute of Plant Biochemistry (IPB) · team project",
+          overview: "CRIMSy is a distributed research data platform with fine-grained access control across institutions. I worked on moving it towards an API-first, REST-based architecture.",
+          points: [
+            "Migrated the backend to Jakarta EE and introduced OpenAPI-defined REST APIs for authentication, users and search",
+            "Redesigned authentication: bearer tokens, database-backed sessions with expiry and cleanup, security filters",
+            "Built a standalone React + TypeScript frontend with a generated API client, role-based UI, user management and CSV/PDF export"
+          ],
+          note: "240+ commits",
+          tech: ["Java", "Jakarta EE", "OpenAPI Generator", "PostgreSQL", "React", "TypeScript"],
+          links: [{ label: "GitHub", url: "https://github.com/ipb-halle/CRIMSy/tree/crimsy_training" }] },
+        { name: "SphaeroSim", tag: "Scientific software", period: "2017 – 2020",
+          org: "IKV · RWTH Aachen",
+          overview: "Simulation software for modelling spherulite growth during polymer crystallisation.",
+          points: [
+            "Core developer of the C++ code base",
+            "Parallelised the three main algorithms with OpenMP and implemented simulated annealing",
+            "Wrote a data extractor that turns simulation output (XML, CSV, VTK) into clean datasets for analysis"
+          ],
+          note: "",
+          tech: ["C++", "OpenMP", "Python", "RapidMiner"],
+          links: [
+            { label: "SphaeroSim", url: "https://github.com/hkazemabad/SphaeroSim" },
+            { label: "Data Extractor", url: "https://github.com/hkazemabad/SphaeroSim-DataExtractor" }
+          ] }
       ]
     },
 
@@ -250,29 +269,48 @@ const CONTENT = {
 
     projects: {
       kicker: "Projekte",
-      title: "Ausgewählte Arbeiten auf GitHub",
-      intro: "Öffentliche Repositories. Weitere Projekte folgen in Kürze.",
-      all: "Alle",
-      code: "Code",
+      title: "Ausgewählte Arbeiten",
+      intro: "Drei Projekte aus Forschung und Industrie – worum es geht und was ich beigetragen habe.",
+      mine: "Mein Beitrag",
       soon: "Weitere Projekte folgen",
-      soonText: "Weitere Arbeiten — u. a. KI- und Webanwendungen — werden hier veröffentlicht.",
+      soonText: "Weitere Arbeiten, u. a. KI- und Webanwendungen, werden hier ergänzt.",
       items: [
-        { name: "CRIMSy / Natural One Health", tag: "Backend",
-          url: "https://github.com/hkazemabad/CRIMSy",
-          role: "Mitwirkende · IPB Halle", featured: true,
-          highlights: ["PostgreSQL-Session-Management, OAuth2 & feingranulares RBAC", "OpenAPI/Swagger-Dokumentationspipeline mit generierten Clients", "Dockerisiertes CI/CD für reproduzierbare Deployments"],
-          text: "Cloud Resource & Information Management System — eine verteilte Forschungsplattform zum Austausch und zur Analyse chemischer, sequenzbasierter und biochemischer Daten mit feingranularer, institutionsübergreifender Zugriffskontrolle.",
-          tech: ["Java", "Jakarta EE", "Maven", "PostgreSQL", "Docker", "OAuth2"] },
-        { name: "SphaeroSim", tag: "Simulation",
-          url: "https://github.com/hkazemabad/SphaeroSim",
-          role: "Kernentwicklerin · IKV, RWTH Aachen",
-          text: "Simulationsframework zur Modellierung des Sphärolithwachstums bei der Polymerkristallisation.",
-          tech: ["C++", "Eigen", "Visual Studio"] },
-        { name: "SphaeroSim Data Extractor", tag: "Data",
-          url: "https://github.com/hkazemabad/SphaeroSim-DataExtractor",
-          role: "Autorin",
-          text: "Durchsucht Simulationsdatenbanken, extrahiert XML-, CSV- und VTK-Ergebnisse, interpoliert Temperaturprofile, validiert Läufe und exportiert bereinigte, aggregierte CSV-Datensätze.",
-          tech: ["C++", "XML", "CSV", "VTK"] }
+        { name: "Natural One Health", tag: "Forschungsplattform", period: "2026", featured: true,
+          org: "Leibniz-Institut für Pflanzenbiochemie (IPB) · Teamprojekt",
+          overview: "Eine interaktive Wissensdatenbank für die Entdeckung bioaktiver Substanzen, die Naturstoffchemie, Biodiversität und biomedizinische Forschungsdaten verknüpft.",
+          points: [
+            "Login für Forschende über ORCID mit Spring Security (OIDC) und serverseitigen Sessions in PostgreSQL",
+            "API-first-Entwicklung: OpenAPI-Spezifikation mit generiertem TypeScript-Client für das React-Frontend",
+            "Funktionen für Benutzerkonten, automatisierte Tests (JUnit, Jest) sowie Docker- und GitHub-Actions-Pipelines"
+          ],
+          note: "200+ Commits",
+          tech: ["Java 21", "Spring Boot", "PostgreSQL", "Neo4j", "OpenAPI", "React", "TypeScript", "Docker"],
+          links: [{ label: "GitHub", url: "https://github.com/ipb-halle/one-health" }] },
+        { name: "Modernisierung von CRIMSy", tag: "Modernisierung", period: "2025 – 2026", featured: true,
+          org: "Leibniz-Institut für Pflanzenbiochemie (IPB) · Teamprojekt",
+          overview: "CRIMSy ist eine verteilte Plattform für Forschungsdaten mit feingranularer, institutionsübergreifender Zugriffskontrolle. Ich habe an der Umstellung auf eine API-first- und REST-basierte Architektur gearbeitet.",
+          points: [
+            "Migration des Backends auf Jakarta EE und Einführung OpenAPI-definierter REST-APIs für Authentifizierung, Benutzer und Suche",
+            "Neugestaltung der Authentifizierung: Bearer-Tokens, datenbankgestützte Sessions mit Ablauf und Bereinigung, Security-Filter",
+            "Eigenständiges Frontend mit React und TypeScript, generiertem API-Client, rollenbasierter Oberfläche, Benutzerverwaltung und CSV/PDF-Export"
+          ],
+          note: "240+ Commits",
+          tech: ["Java", "Jakarta EE", "OpenAPI Generator", "PostgreSQL", "React", "TypeScript"],
+          links: [{ label: "GitHub", url: "https://github.com/ipb-halle/CRIMSy/tree/crimsy_training" }] },
+        { name: "SphaeroSim", tag: "Wissenschaftliche Software", period: "2017 – 2020",
+          org: "IKV · RWTH Aachen",
+          overview: "Simulationssoftware zur Modellierung des Sphärolithwachstums bei der Kristallisation von Polymeren.",
+          points: [
+            "Kernentwicklerin der C++-Codebasis",
+            "Parallelisierung der drei Hauptalgorithmen mit OpenMP und Implementierung von Simulated Annealing",
+            "Entwicklung eines Data Extractors, der Simulationsergebnisse (XML, CSV, VTK) in saubere Datensätze für die Analyse überführt"
+          ],
+          note: "",
+          tech: ["C++", "OpenMP", "Python", "RapidMiner"],
+          links: [
+            { label: "SphaeroSim", url: "https://github.com/hkazemabad/SphaeroSim" },
+            { label: "Data Extractor", url: "https://github.com/hkazemabad/SphaeroSim-DataExtractor" }
+          ] }
       ]
     },
 
