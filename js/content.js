@@ -41,7 +41,7 @@ const CONTENT = {
       facts: [
         { icon: "pin",   text: "Germany" },
         { icon: "cap",   text: "M.Sc. RWTH Aachen" },
-        { icon: "globe", text: "English · German · Persian" }
+        { icon: "globe", text: "English · German · Farsi" }
       ],
       ctaProjects: "View projects",
       ctaContact: "Contact me",
@@ -206,7 +206,7 @@ const CONTENT = {
       facts: [
         { icon: "pin",   text: "Deutschland" },
         { icon: "cap",   text: "M.Sc. RWTH Aachen" },
-        { icon: "globe", text: "Deutsch · Englisch · Persisch" }
+        { icon: "globe", text: "Deutsch · Englisch · Farsi" }
       ],
       ctaProjects: "Projekte ansehen",
       ctaContact: "Kontakt",
