@@ -40,7 +40,7 @@
     $("hero").innerHTML = `
       <div class="hero-grid">
         <div class="hero-photo reveal">
-          <div class="portrait"><img src="${SITE.photo}" alt="${SITE.name}"></div>
+          <div class="portrait"><img src="${SITE.photo}" alt="${c.ui.photo}" width="640" height="640" fetchpriority="high" decoding="async"></div>
         </div>
         <div class="hero-text">
           <span class="status reveal"><span class="dot"></span>${h.status}</span>
@@ -154,7 +154,7 @@
         <p class="sec-lead">${ct.text}</p>
         <a class="big-mail" href="mailto:${L.email}">${L.email}</a>
         <div class="contact-links">
-          <button class="btn" id="copyMail">${ct.copy}</button>
+          <button type="button" class="btn" id="copyMail" aria-live="polite">${ct.copy}</button>
           <a class="btn" href="${L.linkedin}" target="_blank" rel="noopener">${icon("linkedin")}LinkedIn</a>
           <a class="btn" href="${L.github}" target="_blank" rel="noopener">${icon("github")}GitHub</a>
           <a class="btn" href="${L.youtube}" target="_blank" rel="noopener">${icon("youtube")}YouTube</a>
@@ -186,25 +186,54 @@
     document.querySelectorAll(".reveal:not(.in)").forEach(el => io.observe(el));
   }
 
-  /* language switch (remembered when possible) */
+  /* language switch: remembered, reflected in the URL (?lang=de) and in <title>/meta */
+  function setMeta(sel, value) { const el = document.querySelector(sel); if (el) el.setAttribute("content", value); }
   function setLang(l) {
-    lang = l;
-    try { localStorage.setItem("lang", l); } catch (e) {}
-    document.querySelectorAll(".lang-switch button").forEach(b => b.classList.toggle("active", b.dataset.lang === l));
+    lang = CONTENT[l] ? l : "en";
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+    document.querySelectorAll(".lang-switch button").forEach(b => {
+      const on = b.dataset.lang === lang;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-pressed", String(on));
+    });
+    const c = CONTENT[lang];
+    document.title = c.meta.title;
+    setMeta('meta[name="description"]', c.meta.description);
+    setMeta('meta[property="og:title"]', c.meta.title);
+    setMeta('meta[property="og:description"]', c.meta.description);
+    $("skipLink").textContent = c.ui.skip;
+    $("menuBtn").setAttribute("aria-label", c.ui.menu);
+    $("langSwitch").setAttribute("aria-label", c.ui.language);
+    try {
+      const url = new URL(location.href);
+      url.searchParams.set("lang", lang);
+      history.replaceState(null, "", url);
+    } catch (e) {}
     render();
   }
   document.querySelectorAll(".lang-switch button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
 
   /* mobile menu */
-  $("menuBtn").addEventListener("click", (e) => { e.stopPropagation(); document.body.classList.toggle("menu-open"); });
-  document.addEventListener("click", (e) => { if (!e.target.closest("#navLinks")) document.body.classList.remove("menu-open"); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") document.body.classList.remove("menu-open"); });
-  $("navLinks").addEventListener("click", e => { if (e.target.tagName === "A") document.body.classList.remove("menu-open"); });
+  function setMenu(open) {
+    document.body.classList.toggle("menu-open", open);
+    $("menuBtn").setAttribute("aria-expanded", String(open));
+  }
+  $("menuBtn").addEventListener("click", (e) => { e.stopPropagation(); setMenu(!document.body.classList.contains("menu-open")); });
+  document.addEventListener("click", (e) => { if (!e.target.closest("#navLinks")) setMenu(false); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && document.body.classList.contains("menu-open")) { setMenu(false); $("menuBtn").focus(); }
+  });
+  $("navLinks").addEventListener("click", e => { if (e.target.tagName === "A") setMenu(false); });
 
   /* nav shadow on scroll */
   window.addEventListener("scroll", () => document.body.classList.toggle("scrolled", window.scrollY > 10), { passive: true });
 
+  /* start language: ?lang=… in the URL, then the last choice, then the browser language */
   let start = "en";
-  try { start = localStorage.getItem("lang") || ((navigator.language || "").startsWith("de") ? "de" : "en"); } catch (e) {}
+  try {
+    start = new URLSearchParams(location.search).get("lang")
+      || localStorage.getItem("lang")
+      || ((navigator.language || "").startsWith("de") ? "de" : "en");
+  } catch (e) {}
   setLang(start);
 })();

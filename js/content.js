@@ -23,6 +23,12 @@ const SITE = {
 const CONTENT = {
   /* ------------------------------------------------------------------ */
   en: {
+    meta: {
+      title: "Hoda Anvari-Kazemabad — Software Engineer | Backend, Cloud & AI",
+      description: "Software engineer in Germany: backend systems, APIs, databases, CI/CD and cloud, with a background in machine learning and research software."
+    },
+    ui: { skip: "Skip to content", menu: "Open menu", language: "Language", photo: "Portrait of Hoda Anvari-Kazemabad" },
+
     nav: { about: "About", journey: "Experience", projects: "Projects",
            research: "Research", contact: "Contact" },
 
@@ -70,8 +76,8 @@ const CONTENT = {
 
     creating: {
       kicker: "Beyond work",
-      title: "Alongside my engineering work",
-      intro: "Next to my professional work, I am building my own product and sharing Persian literature.",
+      title: "Personal projects",
+      intro: "Outside my job, I am building my own product and sharing Persian literature.",
       items: [
         { name: "SoulReach", status: "Coming soon", url: "", linkLabel: "",
           text: "A web app I am building for one-to-one listening and conversation sessions, and for having books read aloud." },
@@ -182,6 +188,12 @@ const CONTENT = {
 
   /* ------------------------------------------------------------------ */
   de: {
+    meta: {
+      title: "Hoda Anvari-Kazemabad — Software Engineer | Backend, Cloud & KI",
+      description: "Softwareentwicklerin in Deutschland: Backend-Systeme, APIs, Datenbanken, CI/CD und Cloud – mit Hintergrund in Machine Learning und Forschungssoftware."
+    },
+    ui: { skip: "Zum Inhalt springen", menu: "Menü öffnen", language: "Sprache", photo: "Porträt von Hoda Anvari-Kazemabad" },
+
     nav: { about: "Über mich", journey: "Erfahrung", projects: "Projekte",
            research: "Forschung", contact: "Kontakt" },
 
@@ -229,8 +241,8 @@ const CONTENT = {
 
     creating: {
       kicker: "Neben der Arbeit",
-      title: "Neben meiner Arbeit als Engineerin",
-      intro: "Neben meiner beruflichen Tätigkeit entwickle ich ein eigenes Produkt und teile persische Literatur.",
+      title: "Eigene Projekte",
+      intro: "Außerhalb meines Berufs entwickle ich ein eigenes Produkt und teile persische Literatur.",
       items: [
         { name: "SoulReach", status: "Bald verfügbar", url: "", linkLabel: "",
           text: "Eine Web-App, die ich für persönliche Zuhör- und Gesprächssitzungen sowie das Vorlesen von Büchern entwickle." },
@@ -330,7 +342,7 @@ const CONTENT = {
 
     contact: {
       kicker: "Kontakt",
-      title: "Lassen Sie uns gemeinsam zuverlässige Systeme bauen.",
+      title: "Lassen Sie uns gemeinsam zuverlässige Systeme entwickeln.",
       text: "Ich bin offen für Positionen in Software-, Backend-, Cloud- und KI-Engineering sowie Application Modernization in Deutschland. Am schnellsten erreichen Sie mich per E-Mail oder LinkedIn.",
       copy: "E-Mail kopieren",
       copied: "Kopiert!"
