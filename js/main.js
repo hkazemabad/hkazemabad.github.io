@@ -4,6 +4,7 @@
     api: '<path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13.5 6l-3 12"/>',
     flask: '<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 15h9"/>',
     gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>',
+    db: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
     brain: '<circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="12" cy="10" r="1.6"/><path d="M7.6 7.2l3.1 1.9M16.4 7.2l-3.1 1.9M12 11.6V16"/>',
     github: '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.3 6.4-1.5 6.4-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V22"/>',
     linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
@@ -52,7 +53,7 @@
           <div class="cta reveal">
             <a class="btn primary" href="#projects">${h.ctaProjects}</a>
             <a class="btn" href="#contact">${icon("mail")}${h.ctaContact}</a>
-            <a class="btn" href="${SITE.cv}" target="_blank" rel="noopener">${icon("download")}${h.ctaCv}</a>
+            <a class="btn" href="${SITE.cv[lang]}" target="_blank" rel="noopener">${icon("download")}${h.ctaCv}</a>
           </div>
           <div class="socials reveal">
             <a href="${L.linkedin}" target="_blank" rel="noopener">${icon("linkedin", "ic sm")}LinkedIn</a>
@@ -69,15 +70,6 @@
       <div class="stats reveal">
         ${h.stats.map(s => `<div class="stat"><span class="stat-v">${s.value}</span><span class="stat-l">${s.label}</span></div>`).join("")}
       </div>`;
-
-    /* HUB — three sides of me */
-    $("hub").innerHTML = `<div class="hub">${c.hub.map((d, i) => `
-      <a class="door reveal" href="${d.href}">
-        <span class="door-label">${d.label}</span>
-        <h3>${d.title}</h3>
-        <p>${d.text}</p>
-        <span class="door-arrow">${icon("arrow")}</span>
-      </a>`).join("")}</div>`;
 
     /* ABOUT */
     const a = c.about;
@@ -103,11 +95,6 @@
           </div>
         </li>`).join("")}
       </ol></div>`;
-
-    /* IMPACT */
-    const im = c.impact;
-    $("impact").innerHTML = `<div class="impact reveal"><span class="label">${im.kicker}</span>
-      <div class="impact-row">${im.items.map(i => `<div class="impact-item"><span class="impact-v">${i.value}</span><p>${i.text}</p></div>`).join("")}</div></div>`;
 
     /* PROJECTS */
     const p = c.projects;
@@ -167,13 +154,6 @@
             <ul class="plain">${e.langs.map(l => `<li><strong>${l.name}</strong><span>${l.level}</span></li>`).join("")}</ul></div>
         </div>
       </div>`;
-
-    /* PRINCIPLES */
-    const pr = c.principles;
-    $("principles").innerHTML = head(++n, pr.kicker, pr.title) + `
-      <div class="sec-body"><ol class="principles">${pr.items.map((x, i) => `
-        <li class="reveal"><span class="pnum">${String(i + 1).padStart(2, "0")}</span><div><h3>${x.title}</h3><p>${x.text}</p></div></li>`).join("")}
-      </ol></div>`;
 
     /* CONTACT */
     const ct = c.contact;
